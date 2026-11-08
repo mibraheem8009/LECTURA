@@ -76,7 +76,6 @@ sudo find /var/www/LECTURA -type f -exec chmod 640 {} \;
 ## 6. Load the sample data (once)
 
 ```bash
-cd /var/www/LECTURA
 sudo -u www-data php database/seed.php
 ```
 
