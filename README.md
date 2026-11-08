@@ -35,7 +35,7 @@ sudo apt install -y apache2 mysql-server php libapache2-mod-php php-mysql php-mb
 ```bash
 sudo mkdir -p /var/www
 cd /var/www
-git clone https://github.com/mibraheem8009/LECTURA
+sudo git clone https://github.com/mibraheem8009/LECTURA
 ```
 
 ## 3. Create the database and user
