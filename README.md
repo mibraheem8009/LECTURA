@@ -12,7 +12,7 @@ so Ubuntu 22.04 or newer. Ubuntu 20.04 (PHP 7.4) will not work.
 ## Layout
 
 ```
-/var/www/lectura/
+/var/www/LECTURA/
 ├── public/            <- the ONLY folder Apache serves (DocumentRoot)
 │   ├── index.php, logout.php
 │   ├── admin/  teacher/  student/
@@ -33,7 +33,9 @@ sudo apt install -y apache2 mysql-server php libapache2-mod-php php-mysql php-mb
 ## 2. Put the project in place
 
 ```bash
-sudo unzip lectura-ubuntu.zip -d /var/www      # creates /var/www/lectura
+sudo mkdir -p /var/www
+cd /var/www
+git clone https://github.com/mibraheem8009/LECTURA
 ```
 
 ## 3. Create the database and user
@@ -52,13 +54,13 @@ EXIT;
 Load the tables (WARNING: schema.sql drops and recreates every table. Never re-run it on live data):
 
 ```bash
-mysql -u lectura -p lectura < /var/www/lectura/database/schema.sql
+mysql -u lectura -p lectura < /var/www/LECTURA/database/schema.sql
 ```
 
 ## 4. Configure
 
 ```bash
-cd /var/www/lectura
+cd /var/www/LECTURA
 sudo cp config/config.example.php config/config.php
 sudo nano config/config.php          # set 'pass' to the password from step 3
 ```
@@ -66,15 +68,15 @@ sudo nano config/config.php          # set 'pass' to the password from step 3
 ## 5. Permissions
 
 ```bash
-sudo chown -R root:www-data /var/www/lectura
-sudo find /var/www/lectura -type d -exec chmod 750 {} \;
-sudo find /var/www/lectura -type f -exec chmod 640 {} \;
+sudo chown -R root:www-data /var/www/LECTURA
+sudo find /var/www/LECTURA -type d -exec chmod 750 {} \;
+sudo find /var/www/LECTURA -type f -exec chmod 640 {} \;
 ```
 
 ## 6. Load the sample data (once)
 
 ```bash
-cd /var/www/lectura
+cd /var/www/LECTURA
 sudo -u www-data php database/seed.php
 ```
 
@@ -90,7 +92,7 @@ Students need no account (Dashboard button on the login page).
 ## 7. Apache
 
 ```bash
-sudo cp /var/www/lectura/deploy/lectura.conf /etc/apache2/sites-available/lectura.conf
+sudo cp /var/www/LECTURA/deploy/lectura.conf /etc/apache2/sites-available/lectura.conf
 sudo nano /etc/apache2/sites-available/lectura.conf   # set ServerName
 sudo a2dissite 000-default
 sudo a2ensite lectura
