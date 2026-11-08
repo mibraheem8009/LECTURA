@@ -4,8 +4,8 @@ if (PHP_SAPI !== 'cli') {
   exit('Run from the command line: php database/seed.php');
 }
 require_once __DIR__ . '/../includes/booking_service.php';
-if (qa('SELECT COUNT(*) n FROM semesters')[0]['n'] > 0)
-  exit("Already seeded.\n");
+//if (qa('SELECT COUNT(*) n FROM semesters')[0]['n'] > 0)
+ // exit("Already seeded.\n");
 
 /* ---- users ---- */
 $admin = ins('users', ['full_name' => 'Admin', 'email' => 'bcsf24a023@pucit.edu.pk', 'password_hash' => password_hash('admin@23', PASSWORD_DEFAULT), 'role' => 'admin']);
@@ -209,8 +209,8 @@ for ($i = 0; $i < 7; $i++) {
   ins('calendar_weeks', ['semester_id' => $sem, 'phase' => 'post_mid', 'week_number' => $i + 1, 'start_date' => date('Y-m-d', $s), 'end_date' => date('Y-m-d', strtotime('+4 days', $s)), 'planned_lectures' => 2]);
 }
 ins('calendar_weeks', ['semester_id' => $sem, 'phase' => 'post_mid', 'week_number' => 8, 'start_date' => '2026-12-28', 'end_date' => '2027-01-01', 'planned_lectures' => 2, 'notes' => 'Winter vacations Dec 21–25 (tentative)']);
-ins('announcements', ['semester_id' => $sem, 'section_term_id' => $st['F25'], 'kind' => 'quiz', 'title' => 'Database Systems – Quiz 1', 'body' => 'Chapters 1–3. Bring your student card.', 'event_date' => date('Y-m-d', strtotime('+7 days')), 'created_by' => $admin]);
-ins('announcements', ['semester_id' => $sem, 'section_term_id' => $st['F24'], 'kind' => 'quiz', 'title' => 'Artificial Intelligence – Quiz 1', 'body' => 'Search algorithms.', 'event_date' => date('Y-m-d', strtotime('+10 days')), 'created_by' => $admin]);
+//ins('announcements', ['semester_id' => $sem, 'section_term_id' => $st['F25'], 'kind' => 'quiz', 'title' => 'Database Systems – Quiz 1', 'body' => 'Chapters 1–3. Bring your student card.', 'event_date' => date('Y-m-d', strtotime('+7 days')), 'created_by' => $admin]);
+//ins('announcements', ['semester_id' => $sem, 'section_term_id' => $st['F24'], 'kind' => 'quiz', 'title' => 'Artificial Intelligence – Quiz 1', 'body' => 'Search algorithms.', 'event_date' => date('Y-m-d', strtotime('+10 days')), 'created_by' => $admin]);
 ins('announcements', ['semester_id' => $sem, 'section_term_id' => null, 'kind' => 'info', 'title' => 'Welcome to Fall 2026', 'body' => 'Check the Overview tab regularly. Rescheduled, merged and cancelled classes are marked with badges.', 'event_date' => null, 'created_by' => $admin]);
 ins('announcements', ['semester_id' => $sem, 'section_term_id' => null, 'kind' => 'notice', 'title' => 'Friday Jummah break', 'body' => 'No classes from 12:15 to 14:15 on Fridays.', 'event_date' => null, 'created_by' => $admin]);
 
