@@ -170,7 +170,7 @@ CREATE TABLE calendar_weeks (
 CREATE TABLE announcements (                          -- quizzes / general info on the Overview tab
   ann_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   semester_id INT UNSIGNED NOT NULL, section_term_id INT UNSIGNED NULL,   -- NULL = everyone
-  kind ENUM('quiz','info','notice') NOT NULL,
+  kind ENUM('info','notice') NOT NULL,
   title VARCHAR(150) NOT NULL, body TEXT NULL, event_date DATE NULL,
   created_by INT UNSIGNED NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (semester_id) REFERENCES semesters(semester_id),

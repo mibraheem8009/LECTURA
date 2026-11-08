@@ -19,7 +19,7 @@ $T = [
   'rooms' => ['room_id', ['room_name' => f('Name'), 'room_type' => f('Type', 'enum', ['classroom', 'lab', 'hall']), 'capacity' => f('Capacity', 'number'), 'allow_classes' => f('Classes allowed', 'bool'), 'is_active' => f('Active', 'bool')]],
   'calendar_events' => ['event_id', ['semester_id' => f('Semester', 'fk', $SEM), 'title' => f('Title'), 'description' => f('Description', 'textarea', null, true), 'event_type' => f('Type', 'enum', ['classes', 'exam', 'holiday', 'deadline', 'result', 'other']), 'start_date' => f('Start', 'date'), 'end_date' => f('End', 'date'), 'is_tentative' => f('Tentative', 'bool'), 'suspends_regular_classes' => f('Suspends classes', 'bool')]],
   'calendar_weeks' => ['calendar_week_id', ['semester_id' => f('Semester', 'fk', $SEM), 'phase' => f('Phase', 'enum', ['pre_mid', 'post_mid']), 'week_number' => f('Week #', 'number'), 'start_date' => f('Start', 'date'), 'end_date' => f('End', 'date'), 'planned_lectures' => f('Lectures', 'number', null, true), 'notes' => f('Notes', 'text', null, true)]],
-  'announcements' => ['ann_id', ['semester_id' => f('Semester', 'fk', $SEM), 'section_term_id' => f('Section (blank = all)', 'fk', $SEC, true), 'kind' => f('Kind', 'enum', ['quiz', 'info', 'notice']), 'title' => f('Title'), 'body' => f('Body', 'textarea', null, true), 'event_date' => f('Date', 'date', null, true)]],
+  'announcements' => ['ann_id', ['semester_id' => f('Semester', 'fk', $SEM), 'section_term_id' => f('Section (blank = all)', 'fk', $SEC, true), 'kind' => f('Kind', 'enum', ['info', 'notice']), 'title' => f('Title'), 'body' => f('Body', 'textarea', null, true), 'event_date' => f('Date', 'date', null, true)]],
 ];
 $t = $_GET['t'] ?? $_POST['t'] ?? 'rooms';
 if (!isset($T[$t]))

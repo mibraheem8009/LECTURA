@@ -66,7 +66,7 @@ page_start('Overview · ' . $sem['semester_name'], 'overview'); ?>
   </div>
   <div>
     <div class="card">
-      <h3>Quizzes &amp; info</h3>
+      <h3>Announcements</h3>
       <?php if (!$ann) echo '<div class="busy">Nothing posted.</div>';
       foreach ($ann as $a): ?>
         <div class="ann"><span class="b <?= $a['kind'] === 'quiz' ? 'amber' : 'blue' ?>"><?= e(strtoupper($a['kind'])) ?></span> <b><?= e($a['title']) ?></b>
