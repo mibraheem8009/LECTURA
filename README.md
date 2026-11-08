@@ -83,7 +83,7 @@ Default logins (change them straight after first login):
 | Role    | Email                     | Password    |
 |---------|---------------------------|-------------|
 | Admin   | bcsf24a023@pucit.edu.pk   | admin@23    |
-| Teacher | mateen@lectura.local (any teacher) | Teacher@123 |
+| Teacher | mateen@pucit.edu.pk (any teacher) | Teacher@123 |
 
 Students need no account (Dashboard button on the login page).
 
